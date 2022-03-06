@@ -8,6 +8,7 @@
 
 # https://www.dnspod.cn/console/user/security
 API_TOKEN=""
+API_ID=""
 
 USER_AGENT="AnDNS/1.0.0 (hi@anlo.ng)"
 DOMAIN=$(expr match "$CERTBOT_DOMAIN" '.*\.\(.*\..*\)')
@@ -36,7 +37,7 @@ if [ -z "$API_TOKEN" ]; then
     API_TOKEN="$DNSPOD_TOKEN"
 fi
 
-PARAMS="login_token=$API_TOKEN&format=json"
+PARAMS="login_token=$API_ID,$API_TOKEN&format=json"
 
 echo "\
 CERTBOT_DOMAIN: $CERTBOT_DOMAIN
